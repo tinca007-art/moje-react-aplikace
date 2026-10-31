@@ -7,10 +7,10 @@ export function Navigation() {
   return (
     <nav className="nav-bar">
       <Link to="/" className={`nav-link ${location.pathname === "/" ? "active" : ""}`}>
-        🏋️‍♂️ Trénink
+         Trénink
       </Link>
       <Link to="/statistiky" className={`nav-link ${location.pathname === "/statistiky" ? "active" : ""}`}>
-        📊 Statistiky pokroku
+         Statistiky pokroku
       </Link>
     </nav>
   );

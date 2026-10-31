@@ -7,7 +7,7 @@ export function Analytics({ exercises }) {
 
   return (
     <div className="analytics-container">
-      <h2>📊 Analýza Dnešního Výkonu</h2>
+      <h2> Analýza Dnešního Výkonu</h2>
       
       <div className="stats-grid">
         <div className="stat-card">

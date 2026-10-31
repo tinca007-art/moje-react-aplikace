@@ -41,7 +41,7 @@ export function App() {
     <BrowserRouter>
       <div className="app-container">
         <header className="app-header">
-          <h1>🏋️‍♂️ Můj Tréninkový Deník</h1>
+          <h1> Můj Tréninkový Deník</h1>
           <Navigation />
         </header>
 
