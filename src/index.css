@@ -305,17 +305,140 @@ body {
 .btn-reset-workout:hover {
   background-color: var(--danger-hover);
 }
+/* Stylování formuláře pro nový cvik */
+.add-exercise-card {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Stylování pro mazací tlačítko na kartě cviku */
+.exercise-card {
+  position: relative;
+  padding-left: 45px !important; 
+}
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-row-inner {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-input {
+  background-color: #0f172a;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box; /* Zajistí, že input nepřeteče šířku panelu */
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.btn-add-submit {
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-add-submit:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-delete-exercise {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--danger);
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  opacity: 0.4; 
+}
+
+.btn-delete-exercise:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.2);
+  text-shadow: 0 0 8px var(--danger);
+}
+
+
+@media (max-width: 600px) {
+  .exercise-card {
+    padding-left: 16px !important; 
+    padding-top: 35px !important; 
+  }
+
+  .btn-delete-exercise {
+    left: 12px;
+    right: auto;
+    top: 12px;
+    transform: none;
+    opacity: 0.8; 
+  }
+  
+  .btn-delete-exercise:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-row-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
 
 /* ==========================================
    RESPONZIVITA PRO MOBILY (displeje pod 600px)
    ========================================== */
 @media (max-width: 600px) {
-  /* Zmenšíme celkový okraj aplikace, aby zbyl prostor pro obsah */
   .app-container {
     padding: 20px 12px;
   }
 
-  /* Zmenšení nadpisu na mobilu */
   .app-header h1 {
     font-size: 1.8rem;
   }
@@ -324,19 +447,19 @@ body {
     font-size: 0.95rem;
   }
 
-  /* Karta cviku se přeskládá pod sebe (vertikálně) */
+  
   .exercise-card {
     flex-direction: column;
-    align-items: stretch; /* Roztáhne obsah na plnou šířku */
+    align-items: stretch; 
     gap: 15px;
     padding: 16px;
-    text-align: center; /* Zarovná text na střed pro lepší estetiku */
+    text-align: center; 
   }
 
-  /* Ovládací prvky a tlačítka vycentrujeme a roztáhneme */
+  
   .counter-container {
-    justify-content: space-between; /* Číslo na jedné straně, tlačítka na druhé */
-    border-top: 1px solid var(--border); /* Jemné oddělení od textu */
+    justify-content: space-between; 
+    border-top: 1px solid var(--border); 
     padding-top: 12px;
     gap: 10px;
   }
@@ -346,35 +469,34 @@ body {
     font-size: 1.2rem;
   }
 
-  /* Zvětšíme tlačítka pro snadnější klikání prstem (Fat-Finger Friendly) */
   .btn-action {
     width: 46px;
     height: 46px;
     font-size: 1.4rem;
   }
 
-  /* Časovač na mobilu */
+
   .timer-display {
-    font-size: 2.8rem; /* Mírně menší číslo, aby se vešlo */
+    font-size: 2.8rem; 
     margin: 10px 0;
   }
 
-  /* Tlačítka Start/Pauza v časovači roztáhneme, aby se lépe mačkala */
+  
   .timer-box .btn-group {
     flex-direction: row;
     width: 100%;
   }
 
   .btn-timer {
-    flex: 1; /* Tlačítka budou mít stejnou šířku a vyplní prostor */
+    flex: 1; 
     padding: 12px 16px;
     font-size: 1.1rem;
   }
 
-  /* Přednastavené časy (45s, 60s...) zvětšíme pro dotyk */
+
   .btn-preset {
     padding: 10px 14px;
     font-size: 0.95rem;
-    flex: 1; /* Vyplní celou šířku řádku */
+    flex: 1; 
   }
 }

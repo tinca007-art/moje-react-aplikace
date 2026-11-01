@@ -4,6 +4,7 @@ import { Navigation } from "./Components/Navigation";
 import { initialExercises } from "./Components/ExerciseCard";
 import { Dashboard } from "./Pages/Dashboard"; 
 import { Analytics } from "./Pages/Analytics";
+import { AddExerciseCard } from "./Components/AddExercisesCard";
 
 export function App() {
   const [exercises, setExercises] = useState(() => {
@@ -11,12 +12,10 @@ export function App() {
     return saved ? JSON.parse(saved) : initialExercises;
   });
 
-  // Ukládání do localStorage při každé změně serií
   useEffect(() => {
     localStorage.setItem("workout_progress", JSON.stringify(exercises));
   }, [exercises]);
 
-  // OPRAVA: Precizní aktualizace stavu s okamžitým překreslením
   const handleSetChange = (id, increment) => {
     setExercises((prevExercises) => {
       return prevExercises.map((ex) => {
@@ -30,6 +29,23 @@ export function App() {
       });
     });
   };
+
+  const handleAddExercise = (newEx) => {
+    setExercises((prevExercises) => [
+      ...prevExercises,
+      {
+        id: Date.now(), 
+        name: newEx.name,
+        targetSets: newEx.targetSets,
+        reps: newEx.reps,
+        completedSets: 0,
+      },
+    ]);
+  };
+  const handleDeleteExercise = (id) => {
+    setExercises((prevExercises) => prevExercises.filter((ex) => ex.id !== id));
+  };
+
 
   const resetWorkout = () => {
     if (window.confirm("Opravdu chcete restartovat celý trénink?")) {
@@ -53,10 +69,12 @@ export function App() {
                 exercises={exercises} 
                 handleSetChange={handleSetChange} 
                 resetWorkout={resetWorkout} 
+                onAddExercise={handleAddExercise}
+                onDeleteExercise={handleDeleteExercise}
               />
             } 
           />
-          {/* OPRAVA: Předáváme aktuální stav přímo do Analytics, aby data nebyla zamrzlá */}
+      
           <Route path="/statistiky" element={<Analytics exercises={exercises} />} />
         </Routes>
       </div>

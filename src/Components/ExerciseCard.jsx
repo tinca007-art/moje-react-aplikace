@@ -1,6 +1,7 @@
 import React from "react";
 
 
+
 export const initialExercises = [
   { id: 1, name: "Dřepy s činkou", targetSets: 4, reps: "10-12", completedSets: 0 },
   { id: 2, name: "Bench-press", targetSets: 4, reps: "8-10", completedSets: 0 },
@@ -8,7 +9,7 @@ export const initialExercises = [
   { id: 4, name: "Shyby (Přítahy)", targetSets: 3, reps: "Max", completedSets: 0 },
 ];
 
-export function ExerciseCard({ exercise, onIncrement, onDecrement }) {
+export function ExerciseCard({ exercise, onIncrement, onDecrement, onDeleteExercise }) {
   const isCompleted = exercise.completedSets === exercise.targetSets;
 
   return (
@@ -30,6 +31,7 @@ export function ExerciseCard({ exercise, onIncrement, onDecrement }) {
           >
             {isCompleted ? "✓" : "+"}
           </button>
+          <button onClick={onDeleteExercise} className="btn-action btn-delete-exercise">X</button>
         </div>
       </div>
     </div>
