@@ -413,7 +413,7 @@ body {
   .btn-delete-exercise {
     left: 12px;
     right: auto;
-    top: 12px;
+    top: 30px;
     transform: none;
     opacity: 0.8; 
   }

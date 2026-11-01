@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 export function Timer() {
   const [seconds, setSeconds] = useState(60);
   const [isActive, setIsActive] = useState(false);
-  const intervalRef = useRef(null); // Reference pro bezpečné držení intervalu
+  const intervalRef = useRef(null); 
 
   useEffect(() => {
     if (isActive) {
@@ -12,9 +12,8 @@ export function Timer() {
           if (prev <= 1) {
             clearInterval(intervalRef.current);
             setIsActive(false);
-            // Spustíme alert až po vykreslení nuly
             setTimeout(() => {
-              alert("⏱️ Pauza vypršela! Jde se na další sérii.");
+              alert(" Pauza vypršela! Jde se na další sérii.");
             }, 50);
             return 60; 
           }
@@ -25,7 +24,6 @@ export function Timer() {
       clearInterval(intervalRef.current);
     }
 
-    // Čištění při odchodu z komponenty
     return () => clearInterval(intervalRef.current);
   }, [isActive]);
 
@@ -36,7 +34,7 @@ export function Timer() {
 
   return (
     <div className="timer-box">
-      <h3>⏱️ Odpočinek</h3>
+      <h3> Odpočinek</h3>
       <div className="timer-display" style={{ fontSize: '2rem', fontWeight: 'bold' }}>{seconds}s</div>
       
       <div className="btn-group">
