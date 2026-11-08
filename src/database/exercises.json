@@ -1,0 +1,29 @@
+ {
+  "exercises": [
+    { 
+        "id": 1, 
+        "name": "Dřepy s činkou", 
+        "targetSets": 4, 
+        "reps": "10-12", 
+        "completedSets": 0 
+    },
+    { 
+        "id": 2, 
+        "name": "Bench-press", 
+        "targetSets": 4, 
+        "reps": "8-10", 
+        "completedSets": 0 },
+    { 
+        "id": 3, 
+        "name": "Mrtvý tah", 
+        "targetSets": 3, 
+        "reps": "8", 
+        "completedSets": 0 },
+    { 
+        "id": 4, 
+        "name": "Shyby (Přítahy)", 
+        "targetSets": 3, 
+        "reps": "Max", 
+        "completedSets": 0 }
+  ]
+}

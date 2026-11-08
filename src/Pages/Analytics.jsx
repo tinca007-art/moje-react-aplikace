@@ -8,8 +8,7 @@ export function Analytics({ exercises }) {
   return (
     <div className="analytics-container">
       <h2> Analýza Dnešního Výkonu</h2>
-      
-      <div className="stats-grid">
+        <div className="stats-grid">
         <div className="stat-card">
           <h4>Dokončené série</h4>
           <p className="stat-value">{completedSets} z {totalSets}</p>

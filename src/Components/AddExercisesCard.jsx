@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 
 export function AddExerciseCard({ onAddExercise }) {
+  
   const [name, setName] = useState("");
   const [targetSets, setTargetSets] = useState(4);
   const [reps, setReps] = useState("10-12");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!name.trim()) return;
+    e.preventDefault(); 
 
-    // Předání nového cviku do nadřazeného stavu v App
-    onAddExercise({
+    if (name.trim() === "") {
+      return;
+    }
+
+    const newEx = {
       name: name.trim(),
-      targetSets: parseInt(targetSets, 10) || 4,
-      reps: reps.trim() || "10",
-    });
+      targetSets: Number(targetSets), 
+      reps: reps.trim()
+    };
 
-    // Reset formuláře
+    onAddExercise(newEx);
+
     setName("");
     setTargetSets(4);
     setReps("10-12");
